@@ -30,8 +30,8 @@ switch (commands) {
         break;
     case "movie-this":
         var movieName = process.argv[3];
-            movieThis(movieName);
-        
+        movieThis(movieName);
+
         break;
     case "do-what-it-says":
         doWhatItSays();
@@ -41,7 +41,7 @@ switch (commands) {
 }
 //Function for searching spotify
 function spotifyThisSong(song) {
-    var song = process.argv[3];
+    var song;
     if (!song) {
         song = "The Sign";
     }
@@ -118,8 +118,10 @@ function doWhatItSays() {
         if (error) {
             console.log(error);
         } else {
-            var song = data.split(',');
-            spotifyThisSong(song[1]);
+           var song = data.split(',');
+           var songName = song[1];
+           console.log(songName);
+            spotifyThisSong(songName);
         }
 
     })
